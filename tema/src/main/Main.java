@@ -6,13 +6,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
+import fileio.CardInput;
+import fileio.GameInput;
 import fileio.Input;
+import game.components.Board;
+import game.components.Deck;
+import game.components.Games;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -68,25 +74,31 @@ public final class Main {
                 Input.class);
 
         ArrayNode output = objectMapper.createArrayNode();
+        // creem board-ul
+        Board board = new Board();
 
-        /*
-         * TODO Implement your function here
-         *
-         * How to add output to the output array?
-         * There are multiple ways to do this, here is one example:
-         *
-         * ObjectMapper mapper = new ObjectMapper();
-         *
-         * ObjectNode objectNode = mapper.createObjectNode();
-         * objectNode.put("field_name", "field_value");
-         *
-         * ArrayNode arrayNode = mapper.createArrayNode();
-         * arrayNode.add(objectNode);
-         *
-         * output.add(arrayNode);
-         * output.add(objectNode);
-         *
-         */
+        // creem jocurile
+        ArrayList<GameInput> gamesList = inputData.getGames();
+
+        // initializam deck-urile playerilor
+        ArrayList<ArrayList<CardInput>> temp =  inputData.getPlayerOneDecks().getDecks();
+        ArrayList<Deck> deckListOne = new ArrayList<>();
+        int i = 0;
+        for (ArrayList<CardInput> deck: temp) {
+            deckListOne.add(new Deck(deck, i, 1));
+        }
+
+        ArrayList<ArrayList<CardInput>> temp2 =  inputData.getPlayerTwoDecks().getDecks();
+        ArrayList<Deck> deckListTwo = new ArrayList<>();
+        i = 0;
+        for (ArrayList<CardInput> deck: temp2) {
+           deckListTwo.add(new Deck(deck, i, 2));
+        }
+
+        // tinem track la scor si la jocuri
+        Games games = new Games(deckListOne, deckListTwo, gamesList);
+
+        // incepem sa jucam!
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), output);
