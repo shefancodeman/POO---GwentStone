@@ -1,0 +1,20 @@
+[ {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 17,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 13,
+  "playerIdx" : 2
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ ],
+  "playerIdx" : 1
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ ],
+  "playerIdx" : 2
+} ]

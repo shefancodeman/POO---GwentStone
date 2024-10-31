@@ -1,0 +1,63 @@
+[ {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 4,
+    "attackDamage" : 5,
+    "health" : 3,
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "name" : "The Ripper"
+  } ],
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 5,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 11,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 7,
+  "playerIdx" : 1
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 3,
+    "attackDamage" : 3,
+    "health" : 5,
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Black", "White", "Green" ],
+    "name" : "Warden"
+  }, {
+    "mana" : 4,
+    "attackDamage" : 6,
+    "health" : 4,
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Black", "Yellow" ],
+    "name" : "The Ripper"
+  } ],
+  "playerIdx" : 2
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 3,
+    "attackDamage" : 3,
+    "health" : 5,
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Black", "White", "Green" ],
+    "name" : "Warden"
+  }, {
+    "mana" : 4,
+    "attackDamage" : 6,
+    "health" : 4,
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Black", "Yellow" ],
+    "name" : "The Ripper"
+  } ],
+  "playerIdx" : 1
+} ]

@@ -1,0 +1,72 @@
+[ {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 1,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 0,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 0,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 3,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 7,
+  "playerIdx" : 2
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 4,
+    "attackDamage" : 5,
+    "health" : 3,
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "name" : "Miraj"
+  }, {
+    "mana" : 4,
+    "attackDamage" : 5,
+    "health" : 3,
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Red", "Black" ],
+    "name" : "Miraj"
+  } ],
+  "playerIdx" : 1
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 4,
+    "attackDamage" : 5,
+    "health" : 3,
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "name" : "Miraj"
+  }, {
+    "mana" : 4,
+    "attackDamage" : 5,
+    "health" : 3,
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Red", "Black" ],
+    "name" : "Miraj"
+  } ],
+  "playerIdx" : 2
+} ]

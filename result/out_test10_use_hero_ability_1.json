@@ -1,0 +1,34 @@
+[ {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 6,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 7,
+  "playerIdx" : 1
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 2,
+    "attackDamage" : 5,
+    "health" : 1,
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Purple", "Yellow" ],
+    "name" : "Berserker"
+  } ],
+  "playerIdx" : 2
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ {
+    "mana" : 2,
+    "attackDamage" : 5,
+    "health" : 1,
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Purple", "Yellow" ],
+    "name" : "Berserker"
+  } ],
+  "playerIdx" : 1
+} ]

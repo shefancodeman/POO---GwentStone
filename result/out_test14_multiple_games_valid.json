@@ -1,0 +1,204 @@
+[ {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 1,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 2,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 1,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 5,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 4,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 14,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 27,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 23,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 30,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 40,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 54,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 79,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 93,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 90,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 93,
+  "playerIdx" : 2
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ ],
+  "playerIdx" : 1
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ ],
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 1,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 3,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 21,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 16,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 28,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 23,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 36,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerMana",
+  "output" : 32,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 53,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 66,
+  "playerIdx" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 65,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 78,
+  "playerIdx" : 1
+}, {
+  "command" : "getPlayerMana",
+  "output" : 91,
+  "playerIdx" : 2
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ ],
+  "playerIdx" : 1
+}, {
+  "command" : "getCardsInHand",
+  "output" : [ ],
+  "playerIdx" : 2
+} ]
