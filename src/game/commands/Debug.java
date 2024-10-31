@@ -17,7 +17,7 @@ public class Debug {
 
         // adaptam cardurile in format obj, din moment ce nu se printeaza corect
         ArrayNode temp = objectMapper.createArrayNode();
-        if (action.getHandIdx() == 1) {
+        if (action.getPlayerIdx() == 1) {
             for (Card card: match.player1.getHand().getCardsInHand()) {
                 temp.add(card.cardObj());
             }
@@ -105,6 +105,30 @@ public class Debug {
         }
 
         print.put("playerIdx", actionsInput.getPlayerIdx());
+        return print;
+    }
+
+    // cartile trebuie sa fie pe 4 ArrayNodes DIFERITE, pe 4 randuri
+    // NU STIAM CE NU MI DA :))
+    public static ObjectNode getCardsOnTable(Match match) {
+        ObjectNode print = null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        print = objectMapper.createObjectNode();
+        // adaugam comanda si atat
+        print.put("command", "getCardsOnTable");
+
+        ArrayNode cards = objectMapper.createArrayNode();
+        // mergem de pe row 0 pana la row 3
+        for (int i = 0; i < 4; i++) {
+            ArrayNode temp = objectMapper.createArrayNode();
+            // si de la stanga la dreapta
+            for (Card card: match.board.getRow(i)) {
+                // nu uitam sa-l facem objectNode
+                temp.add(card.cardObj());
+            }
+            cards.add(temp);
+        }
+        print.put("output", cards);
         return print;
     }
 

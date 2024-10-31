@@ -72,7 +72,7 @@ public class Match {
                 break;
                 case "getCardsInHand": result = Debug.getCardsInHand(this, action);
                 break;
-                case "getCardsOnTable":
+                case "getCardsOnTable": result = Debug.getCardsOnTable(this);
                     break;
                 case "getPlayerTurn": result = Debug.getPlayerTurn(this);
                     break;
