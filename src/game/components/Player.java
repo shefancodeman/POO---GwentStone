@@ -25,10 +25,10 @@ public class Player {
         this.hero = Hero.createHero(hero);
         this.id = id;
         this.hand = new Hand();
-        this.mana = 0;
+        this.mana = 1;
         // player 1 are rows 2 si 3, iar 2 are 0 si 1
         if (id == 1) {
-            assignedRows = new int[]{2, 3};
+            assignedRows = new int[]{2 , 3};
         } else { // nu tratam cazul in care id-ul nu este valid
             assignedRows = new int[]{0, 1};
         }
@@ -41,11 +41,6 @@ public class Player {
         if (drawnCard != null) {
             hand.getCards().add(drawnCard);
         }
-    }
-
-    // mana creste cu unu in fiecare tura
-    public void gainMana() {
-        mana++;
     }
 
     // verificare daca row-ul ne apartine
@@ -69,7 +64,6 @@ public class Player {
         if (cardToPlace.getMana() > mana) {
             return "Not enough mana to place card on table.";
         }
-
 
         // scadem mana daca totul este ok si adaugam cartea pe masa
         if (board.addCard(cardToPlace, row)) {

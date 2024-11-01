@@ -9,26 +9,25 @@ import java.util.Collections;
 import java.util.List;
 
 @Getter
-@Setter
 public class Hand {
+    // hand-ul e o lista de carti la care adaugam
     private final ArrayList<Card> cards;
 
+    // constructoare
     public Hand() {
         this.cards = new ArrayList<Card>();
     }
+
     public Hand(ArrayList<Card> cards) {
         this.cards = cards;
     }
+
     public void removeCard(int idx) {
         this.cards.remove(idx);
     }
 
+    // getter
     public List<Card> getCardsInHand() {
         return new ArrayList<>(cards);
-    }
-
-    @Override
-    public String toString() {
-        return "Hand{" + "cardsInHand=" + cards + '}';
     }
 }

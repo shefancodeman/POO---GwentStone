@@ -98,7 +98,8 @@ public final class Main {
         // tinem track la scor si la jocuri
         Games games = new Games(deckListOne, deckListTwo, gamesList);
 
-        // incepem sa jucam!
+        // incepem sa jucam! (incepem sa rulam meci cu meci,
+        // meciurile la randul lor luand comanda cu comanda
         ArrayNode output = games.startMatches();
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();

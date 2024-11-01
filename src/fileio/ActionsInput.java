@@ -1,5 +1,7 @@
 package fileio;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 public final class ActionsInput {
     private String command;
     private int handIdx;

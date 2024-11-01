@@ -24,6 +24,8 @@ public class Games {
     private static int playerTwoWins;
     private ArrayList<GameInput> gamesList;
 
+    // initializam jocul cu win si games countere
+    // cat si deckurile din care putem alege
     public Games(final ArrayList<Deck> playerOneDecks,
                       final ArrayList<Deck> playerTwoDecks,
                       final ArrayList<GameInput> gamesList) {
@@ -44,6 +46,7 @@ public class Games {
         for (GameInput game : gamesList) {
             match = new Match(output, game, p1Decks, p2Decks);
             for (ActionsInput action: game.getActions()) {
+                // rulam comanda cu comanda
                     ObjectNode temp = match.play(action);
                     if (temp != null) {
                         output.add(temp);

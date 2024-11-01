@@ -2,13 +2,8 @@ package game.cards.legendaries;
 
 import fileio.CardInput;
 import game.cards.Card;
-import game.cards.LegendaryCard;
-import lombok.Getter;
-import lombok.Setter;
 
-import java.util.ArrayList;
-
-public class Disciple extends LegendaryCard {
+public class Disciple extends Card {
     public Disciple(CardInput card, int owner) {
         super(card, owner);
     }
@@ -16,12 +11,19 @@ public class Disciple extends LegendaryCard {
     // implementam God's Plan
     @Override
     public String ability(Card card) {
-        if(!card.isFrozen()) {
-            if (!(card.getOwner() == this.getOwner())) {
-                return "Attacked card does not belong to the current player.";
+        // din moment ce Disciple functioneaza pe cardurile proprii
+        // am decis sa codez aici toate posibilitatile in ordine
+        if (!this.isFrozen()) {
+            if (this.isUsable()) {
+                if (!(card.getOwner() == this.getOwner())) {
+                    return "Attacked card does not belong to the current player.";
+                } else {
+                    card.setHealth(card.getHealth() + 2);
+                    this.setUsable(false);
+                    return null;
+                }
             } else {
-                card.setAttack(card.getHealth() + 2);
-                return "ok";
+                return "Attacker card has already attacked this turn.";
             }
         } else {
             return "Attacker card is frozen.";

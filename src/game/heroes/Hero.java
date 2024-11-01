@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.CardInput;
+import game.components.Board;
 import game.heroes.named.Empress_Thorina;
 import game.heroes.named.General_Kocioraw;
 import game.heroes.named.King_Mudface;
@@ -21,20 +22,20 @@ public abstract class Hero {
     private String description;
     private List<String> colors;
     private String name;
-    private boolean used; // verificam daca am folosit abilitatea
+    private boolean usable; // verificam daca am folosit abilitatea
 
-    // constructor pentru erou
-
+    // constructor pentru erou, cu health-ul 30
+    // si poate folosi abilitatea (usable e true)
     public Hero(CardInput card) {
         this.mana = card.getMana();
         this.health = 30;
         this.description = card.getDescription();
         this.colors = card.getColors();
         this.name = card.getName();
-        this.used = false;
+        this.usable = true;
     }
 
-    // Factory pattern pentru a creea eroul potrivit dupa nume
+    // Factory pattern pentru a creea eroul dupa nume
     public static Hero createHero(CardInput hero) {
         return switch (hero.getName()) {
             case "Lord Royce" -> new Lord_Royce(hero);
@@ -45,6 +46,7 @@ public abstract class Hero {
         };
     }
 
+    // acelasi constructor de ObjectNode ca la Card
     public ObjectNode heroObj () {
         // copiat 1 la 1 de la cardNode
         ObjectMapper objectMapper = new ObjectMapper();
@@ -64,8 +66,10 @@ public abstract class Hero {
         heroNode.put("name", this.getName());
         heroNode.put("health", this.getHealth());
 
-        // returnam cardul!
+        // returnam erou ca ObjectNode!
         return heroNode;
     }
-    public abstract void ability(int row);
+
+    //fiecare erou afecteaza board-ul (sau un row) si e controlat de un player
+    public abstract String ability(Board board, int row, int playerIdx);
 }

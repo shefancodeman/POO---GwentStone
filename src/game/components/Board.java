@@ -12,7 +12,7 @@ public class Board {
     public Board() {
         boardRows = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            boardRows.add(new ArrayList<>());
+            boardRows.add(new ArrayList<Card>());
         }
     }
 
@@ -35,48 +35,31 @@ public class Board {
             card.setY(-1);
             // scoatem cardul de pe masa
             boardRows.get(row).remove(col);
-            // shiftam la stanga
-            for (int i = col; i < boardRows.get(row).size() - 1; i++) {
-                boardRows.get(row).set(i, boardRows.get(row).get(i + 1));
-            }
-            // scoate duplicatul
-            boardRows.get(row).remove(boardRows.get(row).size() - 1);
         }
     }
 
     // inspectam o carte de pe board
     public Card getCard(int row, int col) {
-        if (row >= 0 && row < 4 && col >= 0 && col < boardRows.get(row).size()) {
-            return boardRows.get(row).get(col);
-        }
+        if ((row >= 0 && row < 4) && (col >= 0 && col < boardRows.get(row).size())) {
+                return boardRows.get(row).get(col);
+            }
         return null;
     }
 
     // resetam atacurile/frozen status pentru unul dintre playeri
     // untap este termen de Magic the Gathering dar ¯\_(ツ)_/¯
     public void untap(int playerIdx) {
-        if (playerIdx == 1) {
-            for (Card card: this.boardRows.get(3)) {
-                card.setUsable(true);
-                card.setFrozen(false);
-            }
-            for (Card card: this.boardRows.get(2)) {
-                card.setUsable(true);
-                card.setFrozen(false);
-            }
-        } else {
-            for (Card card: this.boardRows.get(1)) {
-                card.setUsable(true);
-                card.setFrozen(false);
-            }
-            for (Card card: this.boardRows.get(0)) {
-                card.setUsable(true);
-                card.setFrozen(false);
+        for (int i = 0; i < 4; i++) {
+            for (Card card: boardRows.get(i)) {
+                if (card != null && card.getOwner() == playerIdx) {
+                    card.setUsable(true);
+                    card.setFrozen(false);
+                }
             }
         }
     }
 
-    // Method to get an entire row of cards
+    // luam un row de carti
     public List<Card> getRow(int row) {
         return new ArrayList<>(boardRows.get(row));
     }

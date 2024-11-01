@@ -10,20 +10,23 @@ import java.util.*;
 @Getter
 @Setter
 public class Deck {
-    @Getter
+    // deckul este un array de carti ce trebuie
+    // sa ramana sortat
     private final ArrayList<Card> cards;
     private final int deckIdx;
     private int owner;
 
+    // creem deckul si il populam in ordine
     public Deck(List<CardInput> initialCards, int deckIdx, int owner) {
         this.cards = new ArrayList<>();
         for (CardInput card: initialCards) {
-            this.cards.add(new Card(card, owner));
+            this.cards.add(Card.createCard(card, owner));
         }
         this.deckIdx = deckIdx;
         this.owner = owner;
     }
 
+    // scoatem cel mai de sus card
     public Card drawCard() {
         if (cards.isEmpty()) {
             return null;
@@ -31,14 +34,5 @@ public class Deck {
         else {
             return cards.remove(0);
         }
-    }
-
-    public int getDeckSize() {
-        return cards.size();
-    }
-
-    @Override
-    public String toString() {
-        return "Deck{" + "cards=" + cards + ", deckIdx=" + deckIdx + '}';
     }
 }

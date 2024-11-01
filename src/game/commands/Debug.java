@@ -91,20 +91,20 @@ public class Debug {
         return print;
     }
 
-    public static ObjectNode getPlayerMana(Match match, ActionsInput actionsInput) {
+    public static ObjectNode getPlayerMana(Match match, ActionsInput command) {
         ObjectNode print = null;
         ObjectMapper objectMapper = new ObjectMapper();
         print = objectMapper.createObjectNode();
         // adaugam comanda si atat, in rest nu cred ca trebuie sa explic
         print.put("command", "getPlayerMana");
 
-        if (actionsInput.getPlayerIdx() == 1) {
+        if (command.getPlayerIdx() == 1) {
             print.put("output", match.player1.getMana());
         } else {
             print.put("output", match.player2.getMana());
         }
 
-        print.put("playerIdx", actionsInput.getPlayerIdx());
+        print.put("playerIdx", command.getPlayerIdx());
         return print;
     }
 
@@ -132,4 +132,21 @@ public class Debug {
         return print;
     }
 
+    public static ObjectNode getCardAtPosition(Match match, ActionsInput command) {
+        ObjectNode print = null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        print = objectMapper.createObjectNode();
+        // adaugam comanda si atat
+        print.put("command", "getCardAtPosition");
+        print.put("x", command.getX());
+        print.put("y", command.getY());
+
+        // folosim functia implementat la board
+        if (match.board.getCard(command.getX(), command.getY()) == null) {
+            print.put("output", "No card available at that position.");
+        } else {
+            print.put("output", match.board.getCard(command.getX(), command.getY()).cardObj());
+        }
+        return print;
+    }
 }

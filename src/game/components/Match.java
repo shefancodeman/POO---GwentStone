@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import fileio.GameInput;
+import game.commands.AttackCommands;
 import game.commands.Debug;
 import game.commands.Play;
 import game.heroes.Hero;
@@ -20,6 +21,7 @@ public class Match {
     public Board board;
     public ArrayNode output;
     public int turnCounter;
+    public int winner;
     public Match (ArrayNode output, GameInput game, ArrayList<Deck> p1Decks, ArrayList<Deck> p2Decks) {
         startingPlayer = game.getStartGame().getStartingPlayer();
         this.player1 = new Player(p1Decks.get(game.getStartGame().getPlayerOneDeckIdx()),  // creem playerii cu deckul apropriat
@@ -37,50 +39,52 @@ public class Match {
         Collections.shuffle(player1.getDeck().getCards(), random1);
         Random random2 = new Random(seed);
         Collections.shuffle(player2.getDeck().getCards(), random2);
+
+        // board nou
         this.board = new Board();
 
-
-        // dupa la inceputul rundei primesc fiecare ce trebuie
+        // dupa la inceputul rundei primesc fiecare cate un card
         player1.drawCard();
-        player1.gainMana();
         player2.drawCard();
-        player2.gainMana();
 
+        // numaram turele si setam winner la 0, din
+        // moment ce meciul de abea a inceput
         this.output = output;
         this.turnCounter = 1;
+        this.winner = 0;
     }
 
-    public ObjectNode play(ActionsInput action) {
+    public ObjectNode play(ActionsInput command) {
         ObjectNode result = null;
-            switch (action.getCommand()) {
+            switch (command.getCommand()) {
                     // comenzi pentru joc
                 case "endPlayerTurn": Play.endTurn(this);
                     break;
-                case "placeCard": result = Play.placeCard(this, action);
+                case "placeCard": result = Play.placeCard(this, command);
                     break;
-                case "cardUsesAttack":
+                case "cardUsesAttack": result = AttackCommands.attackCard(this, command);
                     break;
-                case "cardUsesAbility":
+                case "cardUsesAbility": result = AttackCommands.cardUsesAbility(this, command);
                     break;
-                case "useAttackHero":
+                case "useAttackHero": result = AttackCommands.useAttackHero(this, command);
                     break;
                 case "useHeroAbility":
                     break;
 
                     //comenzi pt debug
-                case "getPlayerDeck": result = Debug.getPlayerDeck(this, action);
+                case "getPlayerDeck": result = Debug.getPlayerDeck(this, command);
                 break;
-                case "getCardsInHand": result = Debug.getCardsInHand(this, action);
+                case "getCardsInHand": result = Debug.getCardsInHand(this, command);
                 break;
                 case "getCardsOnTable": result = Debug.getCardsOnTable(this);
                     break;
                 case "getPlayerTurn": result = Debug.getPlayerTurn(this);
                     break;
-                case "getPlayerHero": result = Debug.getPlayerHero(this, action);
+                case "getPlayerHero": result = Debug.getPlayerHero(this, command);
                     break;
-                case "getCardAtPosition":
+                case "getCardAtPosition": result = Debug.getCardAtPosition(this, command);
                     break;
-                case "getPlayerMana": result = Debug.getPlayerMana(this, action);
+                case "getPlayerMana": result = Debug.getPlayerMana(this, command);
                     break;
                 case "getFrozenCardsOnTable":
                     break;
