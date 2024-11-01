@@ -2,10 +2,19 @@
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
   "command" : "getPlayerMana",
   "output" : 1,
   "playerIdx" : 2
 }, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
   "command" : "getPlayerMana",
   "output" : 0,
   "playerIdx" : 1
@@ -39,6 +48,10 @@
     "colors" : [ "Orange", "Red", "Black" ],
     "name" : "The Ripper"
   }
+}, {
+  "command" : "useHeroAbility",
+  "affectedRow" : 0,
+  "error" : "Not enough mana to use hero's ability."
 }, {
   "command" : "getCardAtPosition",
   "x" : 2,
@@ -87,25 +100,35 @@
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
+}, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerMana",
   "output" : 3,
   "playerIdx" : 1
 }, {
+  "command" : "useHeroAbility",
+  "affectedRow" : 0,
+  "error" : "Selected row does not belong to the current player."
+}, {
   "command" : "getCardAtPosition",
   "x" : 0,
   "y" : 0,
   "output" : {
     "mana" : 2,
     "attackDamage" : 2,
-    "health" : 2,
+    "health" : 3,
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "name" : "Berserker"
   }
 }, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
   "command" : "getPlayerMana",
-  "output" : 7,
+  "output" : 5,
   "playerIdx" : 2
 }, {
   "command" : "useAttackHero",
@@ -121,7 +144,7 @@
   "output" : [ [ {
     "mana" : 2,
     "attackDamage" : 2,
-    "health" : 2,
+    "health" : 3,
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "name" : "Berserker"
@@ -197,4 +220,13 @@
     "name" : "Miraj"
   } ],
   "playerIdx" : 2
+}, {
+  "command" : "getTotalGamesPlayed",
+  "output" : 4
+}, {
+  "command" : "getPlayerTwoWins",
+  "output" : 0
+}, {
+  "command" : "getPlayerOneWins",
+  "output" : 6
 } ]

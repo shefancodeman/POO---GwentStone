@@ -118,12 +118,12 @@ public class Debug {
         print.put("command", "getCardsOnTable");
 
         ArrayNode cards = objectMapper.createArrayNode();
-        // mergem de pe row 0 pana la row 3
+        // iteram prin ArrayList<ArrayList> de la row 0 la 3
         for (int i = 0; i < 4; i++) {
             ArrayNode temp = objectMapper.createArrayNode();
-            // si de la stanga la dreapta
+            // si de la stanga la dreapta row-ului
             for (Card card: match.board.getRow(i)) {
-                // nu uitam sa-l facem objectNode
+                // nu uitam sa facem fiecare Card ObjectNode
                 temp.add(card.cardObj());
             }
             cards.add(temp);
@@ -148,5 +148,29 @@ public class Debug {
             print.put("output", match.board.getCard(command.getX(), command.getY()).cardObj());
         }
         return print;
+    }
+
+    public static ObjectNode getFrozenCardsOnTable (Match match) {
+        ObjectNode print = null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        print = objectMapper.createObjectNode();
+        // adaugam comanda si atat
+        print.put("command", "getFrozenCardsOnTable");
+
+        // la fel ca la getCardsOnBoard, iteram prin ArrayList<ArrayList>
+        // si luam fiecare carte care are frozen = true;
+        ArrayNode cards = objectMapper.createArrayNode();
+        // mergem de pe row 0 pana la row 3
+        for (int i = 0; i < 4; i++) {
+            // si de la stanga la dreapta
+            for (Card card: match.board.getRow(i)) {
+                // nu uitam sa facem objectNode DOAR daca e frozen
+                if (card.isFrozen()) {
+                    cards.add(card.cardObj());
+                }
+            }
+        }
+        print.put("output", cards);
+        return  print;
     }
 }

@@ -79,24 +79,9 @@ public final class Main {
         // creem jocurile
         ArrayList<GameInput> gamesList = inputData.getGames();
 
-        // initializam deck-urile playerilor
-        ArrayList<ArrayList<CardInput>> temp =  inputData.getPlayerOneDecks().getDecks();
-        ArrayList<Deck> deckListOne = new ArrayList<>();
-        int i = 0;
-        for (ArrayList<CardInput> deck: temp) {
-            deckListOne.add(new Deck(deck, i, 1));
-            i++;
-        }
-        i = 0;
-        ArrayList<ArrayList<CardInput>> temp2 =  inputData.getPlayerTwoDecks().getDecks();
-        ArrayList<Deck> deckListTwo = new ArrayList<>();
-        for (ArrayList<CardInput> deck: temp2) {
-            deckListTwo.add(new Deck(deck, i, 2));
-            i++;
-        }
-
         // tinem track la scor si la jocuri
-        Games games = new Games(deckListOne, deckListTwo, gamesList);
+        Games games = new Games(inputData.getPlayerOneDecks().getDecks(),
+                inputData.getPlayerTwoDecks().getDecks(), gamesList);
 
         // incepem sa jucam! (incepem sa rulam meci cu meci,
         // meciurile la randul lor luand comanda cu comanda

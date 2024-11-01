@@ -1,6 +1,7 @@
 package game.heroes.named;
 
 import fileio.CardInput;
+import game.cards.Card;
 import game.components.Board;
 import game.heroes.Hero;
 
@@ -27,7 +28,14 @@ public class Lord_Royce extends Hero {
                 return "Selected row does not belong to the enemy.";
             }
         }
+
+        // daca folosim abilitatea, nu o putem folosi din nou
         this.setUsable(false);
+        // iteram prin fiecare carte din row si ii dam conditia Frozen
+        for (Card card: board.getRow(row)) {
+            card.setFrozen(true);
+        }
+        return null;
     }
 
 

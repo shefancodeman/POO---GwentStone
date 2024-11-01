@@ -7,6 +7,7 @@ import fileio.GameInput;
 import game.commands.AttackCommands;
 import game.commands.Debug;
 import game.commands.Play;
+import game.commands.Stats;
 import game.heroes.Hero;
 
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class Match {
                     break;
                 case "useAttackHero": result = AttackCommands.useAttackHero(this, command);
                     break;
-                case "useHeroAbility":
+                case "useHeroAbility": result = Play.useHeroAbility(this, command);
                     break;
 
                     //comenzi pt debug
@@ -86,15 +87,15 @@ public class Match {
                     break;
                 case "getPlayerMana": result = Debug.getPlayerMana(this, command);
                     break;
-                case "getFrozenCardsOnTable":
+                case "getFrozenCardsOnTable": result = Debug.getFrozenCardsOnTable(this);
                     break;
 
                     //comenzi pt statistici
-                case "getTotalGamesPlayed":
+                case "getTotalGamesPlayed": result = Stats.getTotalGamesPlayed();
                     break;
-                case "getPlayerOneWins":
+                case "getPlayerOneWins": result = Stats.getPlayerOneWins();
                     break;
-                case "getPlayerTwoWins":
+                case "getPlayerTwoWins": result = Stats.getPlayerTwoWins();
                     break;
             }
             return result;

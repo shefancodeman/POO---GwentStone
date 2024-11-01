@@ -35,7 +35,7 @@ public class Player {
         this.turn = false;
     }
 
-    // tragem carte, daca avem de unde, si o punem in mana
+    // adaugam o carte din pachet in mana
     public void drawCard() {
         Card drawnCard = deck.drawCard();
         if (drawnCard != null) {
@@ -43,17 +43,8 @@ public class Player {
         }
     }
 
-    // verificare daca row-ul ne apartine
-    private boolean checkRow(int row) {
-        for (int assignedRow : assignedRows) {
-            if (assignedRow == row) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // punem o carte din mana, daca id-ul si row-ul sunt valide
+    // daca id-ul si row-ul sunt valide, plasam o carte
+    // din mana jucatorului pe masa de joc
     public String placeCard(Board board, int cardIdx, int row) {
         if (cardIdx < 0 || cardIdx >= hand.getCardsInHand().size()) {
             return "Invalid card.";
@@ -65,7 +56,8 @@ public class Player {
             return "Not enough mana to place card on table.";
         }
 
-        // scadem mana daca totul este ok si adaugam cartea pe masa
+        // scadem mana daca toti pasii au trecut
+        // si adaugam cartea pe masa
         if (board.addCard(cardToPlace, row)) {
             mana -= cardToPlace.getMana();
             hand.removeCard(cardIdx);
