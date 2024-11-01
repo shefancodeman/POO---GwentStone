@@ -208,7 +208,7 @@
   "playerIdx" : 1
 }, {
   "command" : "getPlayerMana",
-  "output" : 40,
+  "output" : 39,
   "playerIdx" : 2
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -230,7 +230,7 @@
   "output" : 2
 }, {
   "command" : "getPlayerMana",
-  "output" : 63,
+  "output" : 57,
   "playerIdx" : 2
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -252,7 +252,7 @@
   "output" : [ ]
 }, {
   "command" : "getPlayerMana",
-  "output" : 77,
+  "output" : 67,
   "playerIdx" : 2
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -261,11 +261,11 @@
   "gameEnded" : "Player one killed the enemy hero."
 }, {
   "command" : "getPlayerMana",
-  "output" : 72,
+  "output" : 62,
   "playerIdx" : 1
 }, {
   "command" : "getPlayerMana",
-  "output" : 77,
+  "output" : 67,
   "playerIdx" : 2
 }, {
   "command" : "getCardsOnTable",
@@ -646,7 +646,7 @@
   "output" : 1
 }, {
   "command" : "getPlayerMana",
-  "output" : 41,
+  "output" : 40,
   "playerIdx" : 1
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -665,7 +665,7 @@
   }
 }, {
   "command" : "getPlayerMana",
-  "output" : 45,
+  "output" : 44,
   "playerIdx" : 2
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -681,7 +681,7 @@
   "output" : [ ]
 }, {
   "command" : "getPlayerMana",
-  "output" : 50,
+  "output" : 47,
   "playerIdx" : 1
 }, {
   "command" : "getCardAtPosition",
@@ -702,11 +702,11 @@
   "gameEnded" : "Player one killed the enemy hero."
 }, {
   "command" : "getPlayerMana",
-  "output" : 60,
+  "output" : 54,
   "playerIdx" : 1
 }, {
   "command" : "getPlayerMana",
-  "output" : 70,
+  "output" : 64,
   "playerIdx" : 2
 }, {
   "command" : "getCardsOnTable",
@@ -840,11 +840,11 @@
   "playerIdx" : 2
 }, {
   "command" : "getPlayerOneWins",
-  "output" : 12
+  "output" : 2
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 14
+  "output" : 2
 } ]

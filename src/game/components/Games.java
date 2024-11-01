@@ -73,11 +73,6 @@ public class Games {
                         output.add(temp);
                     }
             }
-            if (match.winner == 1) {
-                playerOneWins++;
-            } else if (match.winner == 2) {
-                playerTwoWins++;
-            }
         }
         return output;
     }

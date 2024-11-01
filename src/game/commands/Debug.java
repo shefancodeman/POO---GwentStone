@@ -100,8 +100,10 @@ public class Debug {
 
         if (command.getPlayerIdx() == 1) {
             print.put("output", match.player1.getMana());
+            System.out.println(match.player1.getMana() + " " + match.turnCounter);
         } else {
             print.put("output", match.player2.getMana());
+            System.out.println(match.player1.getMana() + " " + match.turnCounter);
         }
 
         print.put("playerIdx", command.getPlayerIdx());

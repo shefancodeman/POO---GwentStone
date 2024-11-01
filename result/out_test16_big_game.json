@@ -222,11 +222,11 @@
   "playerIdx" : 2
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 4
+  "output" : 1
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0
 }, {
   "command" : "getPlayerOneWins",
-  "output" : 6
+  "output" : 1
 } ]

@@ -36,7 +36,7 @@ public class Empress_Thorina extends Hero {
         int max = 0;
         int x = -1, y = - 1;
         for (Card card: board.getRow(row)) {
-            if (card.getHealth() >= max) {
+            if (card.getHealth() > max) {
                 max = card.getHealth();
                 x = card.getX();;
                 y = card.getY();

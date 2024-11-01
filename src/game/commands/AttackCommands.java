@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import game.cards.Card;
+import game.components.Games;
 import game.components.Match;
 
 // am creat clasa pentru toate comenzile de tip attack
@@ -244,7 +245,7 @@ public class AttackCommands {
                 // player 1 castiga, si setam winner-ul apropriat
                 match.winner = 1;
                 message = "Player one killed the enemy hero.";
-                match.player2.getHero().setHealth(0);
+                Games.playerOneWins++;
             }
         } else if (cardAttacker.getOwner() == 2) {
             if (match.player1.getHero().getHealth() > cardAttacker.getAttack()) {
@@ -255,6 +256,7 @@ public class AttackCommands {
                 // player 2 castiga
                 match.winner = 2;
                 message = "Player two killed the enemy hero.";
+                Games.playerTwoWins++;
             }
         }
 

@@ -28,9 +28,18 @@ public class Play {
                     match.player2.setTurn(false);
                     match.player1.getHero().setUsable(true);
 
+                    // incrementam contorul de ture, ce controleaza si mana
                     match.turnCounter++;
-                    match.player1.setMana(match.player1.getMana() + match.turnCounter);
-                    match.player2.setMana(match.player2.getMana() + match.turnCounter);
+                    if (match.turnCounter < 10) {
+                        // crestem mana folosind contorul de ture pana cand acesta ajunge la 10
+                        match.player1.setMana(match.player1.getMana() + match.turnCounter);
+                        match.player2.setMana(match.player2.getMana() + match.turnCounter);
+                    } else {
+                        // plafonam mana pe tura la 10
+                        match.player1.setMana(match.player1.getMana() + 10);
+                        match.player2.setMana(match.player2.getMana() + 10);
+                    }
+                    // ambii playeri trag carti
                     match.player1.drawCard();
                     match.player2.drawCard();
 
@@ -52,8 +61,13 @@ public class Play {
                     match.player1.getHero().setUsable(true);
 
                     match.turnCounter++;
-                    match.player1.setMana(match.player1.getMana() + match.turnCounter);
-                    match.player2.setMana(match.player2.getMana() + match.turnCounter);
+                    if (match.turnCounter < 10) {
+                        match.player1.setMana(match.player1.getMana() + match.turnCounter);
+                        match.player2.setMana(match.player2.getMana() + match.turnCounter);
+                    } else {
+                        match.player1.setMana(match.player1.getMana() + 10);
+                        match.player2.setMana(match.player2.getMana() + 10);
+                    }
                     match.player1.drawCard();
                     match.player2.drawCard();
 

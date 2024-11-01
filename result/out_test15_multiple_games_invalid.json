@@ -297,13 +297,13 @@
   "playerIdx" : 2
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 4
+  "output" : 1
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0
 }, {
   "command" : "getPlayerOneWins",
-  "output" : 6
+  "output" : 1
 }, {
   "command" : "getPlayerMana",
   "output" : 0,
@@ -582,14 +582,14 @@
   }
 }, {
   "command" : "getPlayerMana",
-  "output" : 50,
+  "output" : 49,
   "playerIdx" : 1
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
 }, {
   "command" : "getPlayerMana",
-  "output" : 59,
+  "output" : 56,
   "playerIdx" : 2
 }, {
   "command" : "getPlayerTurn",
@@ -608,7 +608,7 @@
   }
 }, {
   "command" : "getPlayerMana",
-  "output" : 62,
+  "output" : 59,
   "playerIdx" : 1
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -632,13 +632,13 @@
     "mana" : 1,
     "attackDamage" : 0,
     "health" : 5,
-    "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "name" : "Disciple"
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "name" : "The Cursed One"
   }
 }, {
   "command" : "getPlayerMana",
-  "output" : 68,
+  "output" : 62,
   "playerIdx" : 2
 }, {
   "command" : "useAttackHero",
@@ -664,7 +664,7 @@
   "output" : 2
 }, {
   "command" : "getPlayerMana",
-  "output" : 82,
+  "output" : 72,
   "playerIdx" : 2
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -674,25 +674,11 @@
   "output" : 1
 }, {
   "command" : "getPlayerMana",
-  "output" : 86,
+  "output" : 76,
   "playerIdx" : 1
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
-}, {
-  "command" : "useAttackHero",
-  "cardAttacker" : {
-    "x" : 1,
-    "y" : 1
-  },
-  "error" : "Attacked card is not of type 'Tank'."
-}, {
-  "command" : "useAttackHero",
-  "cardAttacker" : {
-    "x" : 1,
-    "y" : 3
-  },
-  "error" : "Attacked card is not of type 'Tank'."
 }, {
   "command" : "getCardAtPosition",
   "x" : 0,
@@ -701,49 +687,13 @@
     "mana" : 1,
     "attackDamage" : 0,
     "health" : 5,
-    "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "name" : "Disciple"
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "name" : "The Cursed One"
   }
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
-}, {
-  "command" : "cardUsesAttack",
-  "cardAttacker" : {
-    "x" : 1,
-    "y" : 1
-  },
-  "cardAttacked" : {
-    "x" : 3,
-    "y" : 3
-  },
-  "error" : "Attacked card is not of type 'Tank'."
-}, {
-  "command" : "cardUsesAbility",
-  "cardAttacker" : {
-    "x" : 1,
-    "y" : 0
-  },
-  "cardAttacked" : {
-    "x" : 3,
-    "y" : 0
-  },
-  "error" : "Attacked card is not of type 'Tank'."
-}, {
-  "command" : "useAttackHero",
-  "cardAttacker" : {
-    "x" : 0,
-    "y" : 1
-  },
-  "error" : "Attacked card is not of type 'Tank'."
-}, {
-  "command" : "useAttackHero",
-  "cardAttacker" : {
-    "x" : 0,
-    "y" : 0
-  },
-  "error" : "Attacked card is not of type 'Tank'."
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
@@ -752,12 +702,12 @@
   "x" : 2,
   "y" : 0,
   "output" : {
-    "mana" : 1,
-    "attackDamage" : 7,
+    "mana" : 2,
+    "attackDamage" : 6,
     "health" : 3,
-    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
-    "colors" : [ "Brown", "Blue" ],
-    "name" : "Warden"
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "name" : "The Ripper"
   }
 }, {
   "command" : "getPlayerTurn",
@@ -770,41 +720,29 @@
     "mana" : 1,
     "attackDamage" : 0,
     "health" : 6,
-    "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "name" : "Disciple"
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "name" : "The Cursed One"
   }
 }, {
-  "command" : "useAttackHero",
-  "cardAttacker" : {
-    "x" : 1,
-    "y" : 0
-  },
-  "error" : "Attacked card is not of type 'Tank'."
+  "gameEnded" : "Player two killed the enemy hero."
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
     "mana" : 1,
     "attackDamage" : 0,
     "health" : 6,
-    "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "name" : "Disciple"
-  }, {
-    "mana" : 1,
-    "attackDamage" : 0,
-    "health" : 6,
     "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
     "colors" : [ "Pink", "Purple" ],
     "name" : "The Cursed One"
-  } ], [ {
+  }, {
     "mana" : 1,
     "attackDamage" : 6,
-    "health" : 8,
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Black", "Yellow" ],
-    "name" : "The Ripper"
-  }, {
+    "health" : 3,
+    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
+    "colors" : [ "Black", "White" ],
+    "name" : "Sentinel"
+  } ], [ {
     "mana" : 2,
     "attackDamage" : 6,
     "health" : 6,
@@ -812,13 +750,6 @@
     "colors" : [ "Yellow", "Orange", "Red" ],
     "name" : "Miraj"
   } ], [ {
-    "mana" : 1,
-    "attackDamage" : 7,
-    "health" : 3,
-    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
-    "colors" : [ "Brown", "Blue" ],
-    "name" : "Warden"
-  }, {
     "mana" : 2,
     "attackDamage" : 6,
     "health" : 3,
@@ -855,13 +786,6 @@
     "name" : "Sentinel"
   }, {
     "mana" : 1,
-    "attackDamage" : 6,
-    "health" : 2,
-    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "name" : "Sentinel"
-  }, {
-    "mana" : 1,
     "attackDamage" : 0,
     "health" : 3,
     "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
@@ -878,11 +802,11 @@
   "playerIdx" : 1
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 7
+  "output" : 2
 }, {
   "command" : "getPlayerTwoWins",
-  "output" : 0
+  "output" : 1
 }, {
   "command" : "getPlayerOneWins",
-  "output" : 7
+  "output" : 1
 } ]

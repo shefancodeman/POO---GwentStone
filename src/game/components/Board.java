@@ -35,6 +35,11 @@ public class Board {
             card.setY(-1);
             // scoatem cardul de pe masa
             boardRows.get(row).remove(col);
+            // shiftam restul cardurilor la stanga
+            for (int i = col; i < boardRows.get(row).size(); i++) {
+                Card shiftedCard = boardRows.get(row).get(i);
+                shiftedCard.setY(i);
+            }
         }
     }
 
