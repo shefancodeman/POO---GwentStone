@@ -5,8 +5,8 @@ import game.cards.Card;
 import game.components.Board;
 import game.heroes.Hero;
 
-public class Lord_Royce extends Hero {
-    public Lord_Royce(CardInput hero) {
+public class GeneralKocioraw extends Hero {
+    public GeneralKocioraw(CardInput hero) {
         super(hero);
     }
 
@@ -19,21 +19,23 @@ public class Lord_Royce extends Hero {
 
         // verificam daca avem row-urile corecte - le vrem pe
         // ale celuilalt jucator
-        if (playerIdx == 1) {
+        if (playerIdx == 2) {
             if (row == 2 || row == 3) {
-                return "Selected row does not belong to the enemy.";
+                return "Selected row does not belong to the current player.";
             }
         } else {
             if (row == 0 || row == 1) {
-                return "Selected row does not belong to the enemy.";
+                return "Selected row does not belong to the current player.";
             }
         }
 
         // daca folosim abilitatea, nu o putem folosi din nou
         this.setUsable(false);
-        // iteram prin fiecare carte din row si ii dam conditia Frozen
+        // iteram prin fiecare carte din row si ii dam +1 atac
         for (Card card: board.getRow(row)) {
-            card.setFrozen(true);
+            if (card != null) {
+                card.setAttack(card.getAttack() + 1);
+            }
         }
         return null;
     }

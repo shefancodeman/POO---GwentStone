@@ -1,0 +1,79 @@
+commit 6b59e9d3e4fd54e6523694c82d635a5daaa15bb0
+Author: shefancodeman <lucan.stefan64@gmail.com>
+Date:   Fri Nov 1 19:18:35 2024 +0200
+
+    Am rezolvat problema cu mana si penultimul test
+    
+    Mana nu isi oprea incrementarea cand se ajungea la +10 / runda. Cealalta problema era Empress Thorina, care folosea >= in loc de >. 
+  Am schimbat si clasa Board, mai exact am adaugat shiftarea care lipsea de la removeCard.
+    Am mutat si portiunea care afla winner-ul si tinea cont de win-count. Voi adauga comentarii mai inteligente, un ReadME si POATE rezolv checkstyle
+
+commit 86123dd6079021042fa71ac6293de0e8d68092ef
+Author: shefancodeman <lucan.stefan64@gmail.com>
+Date:   Fri Nov 1 17:22:04 2024 +0200
+
+    Fiecare functie este terminata, ultimele 3 teste esueaza
+    
+     Am modificat  fiecare abilitatea a fiecarui erou pentru a functiona cum trebuie. Am scos creerea deck-urilor din Main pentru a simplifica clasa si 
+ pentru a ma asigura ca functioneaza corect cand avem mai multe Match-uri.
+     Trebuie sa aduc modificari sistemului demana, din moment ce asta este singura sursa de eror in JSON-ul de la ultimele 3 teste.
+
+commit 6bead59fc0dfd4d3e0c7b81c13d36127dd0c64ca
+Author: shefancodeman <lucan.stefan64@gmail.com>
+Date:   Fri Nov 1 15:59:30 2024 +0200
+
+     Am finalizat majoritatea comenzilor, raman cele de statistici si useHeroAbility
+    
+     Am sters si voi rescrie abilitatiile claselor ce extind Hero (eroii in sine) cum am facut si la cele ce extind Card. Din moment ce 3 comenzi folosesc functia de atac,
+ am creat o clasa speciala doar pentru ele - AttackCommands. Toate 3 sunt extrem de similare.
+     Am adaugat schimbat si modul in care merge Card, acum cartile cu nume (Ripper, Miraj, etc) sunt puse intr-un factory, si extind direct Card. 
+ Pot rescrie totusi abilitatile lor pentru a reduce liniile AttackCommand.
+
+commit c1fd0ad904228e006e5d3fe5d3bff2da3bbfce1d
+Author: shefancodeman <lucan.stefan64@gmail.com>
+Date:   Thu Oct 31 20:18:20 2024 +0200
+
+    PlaceCard era perfect, problema era getHand
+    
+    Foloseam handIdx pentru a lua hand-ul, in loc de playerIdx. De asemenea la getCardsOnTable am adaugat un : in plus.
+    E clar ca nu mai trebuie sa mai ating codul azi, de asta dau commit asa de rapid
+
+commit fea121caf269bff64131b401d76def9363bd4601
+Author: shefancodeman <lucan.stefan64@gmail.com>
+Date:   Thu Oct 31 19:58:51 2024 +0200
+
+    Am avut o problema cu output-ul. Am mutat tot pe scheletul nou si s-a rezolvat. Am schimbat si SDK si JDK de multe ori. Dar schimbarile sunt:
+    
+    Am adus modificari la Match, in loc sa schimb output-ul (field-ul output) acestuia constant, pur si simplu iau actiune cu actiune si adaug la output. 
+    Deck si Hand au fost transformate ambele in ArrayList<>, am modificat shuffle si am creeat metodele in Hero si Card pentru a le transforma in ObjectNode.
+    Scrierea si citirea din JSON le-am facut la fel ca anul trecut, doar in Match in loc sa creez o clasa CommandRunner, puteam sa fac un CommandRunner care sa tina un Match,
+ dar trebuia sa scriu mai mult.
+    Mi-am dat seama ca am inteles prost cum mergea cu turele jocului, acum ar  trebui sa mearga cum este intentionat (aveam ture de hearthstone in loc de Gwent). 
+    Termin comenzile de Debug si dupa ma apuc de cele de joc (am placeCard facut dar nu este terminat - pune cartile aiurea, ori e o problema de Hand, ori de draw).
+    Am divizat cele 3 tipuri de comenzi si fiecare va avea aproape acelasi input.
+
+commit b73e7a98255d321414d1f81d8d9957cf4cc3a0ad
+Author: shefancodeman <lucan.stefan64@gmail.com>
+Date:   Wed Oct 30 18:10:54 2024 +0200
+
+    Am creat componentele individuale
+    
+    Asta inseamna fiecare carte (extinde clasa carte, legenderele extind o clasa LegendaryCard, care are execute), 
+ fiecare erou (toti extind Hero si fac fiecare tot un execute, ii creem dupa nume cu Factory pattern), cat si masa pe care sa jucam (Board - are gridul unde pune carti).
+ Am creeat si clasa player, fiecare cu mana, deck-ul si hand-ul sau, si cu functii pentru a trage carti, juca carti, indeparta carti, etc).
+    
+    Am initializat deckurile cat si un win counter total si pentru fiecare jucator, dar inca nu am creat meciul in sine (nu incep sa primeasca mana, sa traga carti, etc). 
+ Asta este urmatorul TODO pe lista. Planuiesc sa fac un Match class ce are un while care sa primeasca actiunile si sa tina cont de mana si carti, ruland simultan comenzile
+ printr-un commandRunner.
+
+commit ea2c005e9cd2d4a5963cfc127d8fd768f4019468
+Author: shefancodeman <119846275+shefancodeman@users.noreply.github.com>
+Date:   Mon Oct 28 07:22:06 2024 +0200
+
+    Add files via upload
+
+commit 1a4f8631246e95c096fac5ccafaa14c0f72579a2
+Author: shefancodeman <119846275+shefancodeman@users.noreply.github.com>
+Date:   Mon Oct 28 07:20:57 2024 +0200
+
+    Initial commit

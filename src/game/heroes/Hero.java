@@ -5,10 +5,10 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.CardInput;
 import game.components.Board;
-import game.heroes.named.Empress_Thorina;
-import game.heroes.named.General_Kocioraw;
-import game.heroes.named.King_Mudface;
-import game.heroes.named.Lord_Royce;
+import game.heroes.named.EmpressThorina;
+import game.heroes.named.GeneralKocioraw;
+import game.heroes.named.KingMudface;
+import game.heroes.named.LordRoyce;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,10 +38,10 @@ public abstract class Hero {
     // Factory pattern pentru a creea eroul dupa nume
     public static Hero createHero(CardInput hero) {
         return switch (hero.getName()) {
-            case "Lord Royce" -> new Lord_Royce(hero);
-            case "General Kocioraw" -> new General_Kocioraw(hero);
-            case "King Mudface" -> new King_Mudface(hero);
-            case "Empress Thorina" -> new Empress_Thorina(hero);
+            case "Lord Royce" -> new LordRoyce(hero);
+            case "General Kocioraw" -> new GeneralKocioraw(hero);
+            case "King Mudface" -> new KingMudface(hero);
+            case "Empress Thorina" -> new EmpressThorina(hero);
             default -> throw new IllegalStateException("Unexpected value: " + hero.getName());
         };
     }

@@ -4,16 +4,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import game.cards.Card;
-import game.components.Games;
-import game.components.Match;
+import game.matches.MatchList;
+import game.matches.Match;
 
 // am creat clasa pentru toate comenzile de tip attack
 // attackCard, useAttackHero, useCardAbility din moment
 // ce sunt toate trei foarte similare
-public class AttackCommands {
+public class Attack {
     // creem o clasa ajutatoare pentru a transforma coordonate
     // in ObjectNode
-    public static ObjectNode convert(int x, int y) {
+    public static ObjectNode convert(final int x, final int y) {
         ObjectNode print = null;
         ObjectMapper objectMapper = new ObjectMapper();
         print = objectMapper.createObjectNode();
@@ -23,7 +23,7 @@ public class AttackCommands {
     }
 
     // creem clasa pentru atacat carti
-    public static ObjectNode attackCard(Match match, ActionsInput command) {
+    public static ObjectNode attackCard(final Match match, final ActionsInput command) {
         String message = null;
         // cautam cardul atacat si cel ce ataca pe board
         // desfacem coordonatele in x si y
@@ -58,7 +58,8 @@ public class AttackCommands {
             // verificam daca pe randurile unde pot fi Taunt Cards
             // sunt cu adevarat Taunt cards - randul 1 pt P2 si 2 pt P1
             // sarim acest pas daca atacam un card care are Taunt
-        } else if (!cardAttacked.getName().equals("Goliath") && !cardAttacked.getName().equals("Warden")) {
+        } else if (!cardAttacked.getName().equals("Goliath") &&
+                !cardAttacked.getName().equals("Warden")) {
             if (cardAttacker.getOwner() == 1) {
                 for (Card card : match.board.getRow(1)) {
                     if (card.getName().equals("Goliath") || card.getName().equals("Warden"))
@@ -95,7 +96,7 @@ public class AttackCommands {
         return null;
     }
 
-    public static ObjectNode cardUsesAbility(Match match, ActionsInput command) {
+    public static ObjectNode cardUsesAbility(final Match match, final ActionsInput command) {
         String message = null;
         // functiile sunt foarte similare, de aceea antetul este
         // identic, modificand doar actiunea de la final
@@ -134,7 +135,8 @@ public class AttackCommands {
             // verificam daca pe randurile unde pot fi Taunt Cards
             // sunt cu adevarat Taunt cards - randul 1 pt P2 si 2 pt P1
             // sarim acest pas daca atacam un card care are Taunt
-        } else if (!cardAttacked.getName().equals("Goliath") && !cardAttacked.getName().equals("Warden")) {
+        } else if (!cardAttacked.getName().equals("Goliath") &&
+                !cardAttacked.getName().equals("Warden")) {
             if (cardAttacker.getOwner() == 1) {
                 for (Card card : match.board.getRow(1)) {
                     if (card.getName().equals("Goliath") || card.getName().equals("Warden"))
@@ -179,7 +181,7 @@ public class AttackCommands {
         return null;
     }
 
-    public static ObjectNode useAttackHero(Match match, ActionsInput command) {
+    public static ObjectNode useAttackHero(final Match match, final ActionsInput command) {
         // daca jocul e deja gata, nu mai putem ataca eroii
         if (match.winner != 0) {
             return null;
@@ -245,7 +247,7 @@ public class AttackCommands {
                 // player 1 castiga, si setam winner-ul apropriat
                 match.winner = 1;
                 message = "Player one killed the enemy hero.";
-                Games.playerOneWins++;
+                MatchList.playerOneWins++;
             }
         } else if (cardAttacker.getOwner() == 2) {
             if (match.player1.getHero().getHealth() > cardAttacker.getAttack()) {
@@ -256,7 +258,7 @@ public class AttackCommands {
                 // player 2 castiga
                 match.winner = 2;
                 message = "Player two killed the enemy hero.";
-                Games.playerTwoWins++;
+                MatchList.playerTwoWins++;
             }
         }
 

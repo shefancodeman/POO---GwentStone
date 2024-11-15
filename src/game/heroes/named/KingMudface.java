@@ -5,8 +5,8 @@ import game.cards.Card;
 import game.components.Board;
 import game.heroes.Hero;
 
-public class King_Mudface extends Hero {
-    public King_Mudface(CardInput hero) {
+public class KingMudface extends Hero {
+    public KingMudface(CardInput hero) {
         super(hero);
     }
 

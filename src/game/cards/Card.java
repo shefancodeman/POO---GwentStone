@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.CardInput;
 import game.cards.legendaries.Disciple;
 import game.cards.legendaries.Miraj;
-import game.cards.legendaries.The_Cursed_One;
-import game.cards.legendaries.The_Ripper;
+import game.cards.legendaries.TheCursedOne;
+import game.cards.legendaries.TheRipper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 @Setter
 @Getter
+// clasa pentru cartile obisnuite, va fi extinsa pentru legendare
 public class Card {
     private int mana;
     private int attack;
@@ -28,7 +29,7 @@ public class Card {
     private boolean usable; // verif daca deja a atacat
 
     // constructor
-    public Card(CardInput card, int owner) {
+    public Card(final CardInput card, final int owner) {
         this.mana = card.getMana();
         this.attack = card.getAttackDamage();
         this.health = card.getHealth();
@@ -42,7 +43,9 @@ public class Card {
         this.y = -1; // cardul nu e pe masa cand e initializat
     }
 
-    public ObjectNode cardObj () {
+    // functie pentru a transorma din Card in ObjectNode, era nevoie pentru
+    // afisarea corecta in JSON
+    public final ObjectNode cardObj() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode cardNode = objectMapper.createObjectNode();
 
@@ -65,40 +68,19 @@ public class Card {
     }
 
     // Factory pattern pentru a crea cartile legendare dupa nume
-    public static Card createCard (CardInput card, int owner) {
-        switch (card.getName()) {
-            case "The Ripper": return new The_Ripper(card, owner);
-            case "Disciple": return new Disciple(card, owner);
-            case "The Cursed One": return new The_Cursed_One(card, owner);
-            case "Miraj": return new Miraj(card, owner);
-            default: return new Card(card, owner);
-        }
+    public static final Card createCard(final CardInput card, final int owner) {
+        return switch (card.getName()) {
+            case "The Ripper" -> new TheRipper(card, owner);
+            case "Disciple" -> new Disciple(card, owner);
+            case "The Cursed One" -> new TheCursedOne(card, owner);
+            case "Miraj" -> new Miraj(card, owner);
+            default -> new Card(card, owner);
+        };
     }
 
     // cartile normale nu au abilitati, dar cele legendare da
     // acestea vor da ovveride la ability
-    public String ability(Card card) {
+    public String ability(final Card card) {
         return null;
-    }
-
-    @Override
-    public String toString() {
-        return "CardInput{"
-                +  "mana="
-                + mana
-                +  ", attackDamage="
-                + attack
-                + ", health="
-                + health
-                +  ", description='"
-                + description
-                + '\''
-                + ", colors="
-                + colors
-                + ", name='"
-                +  ""
-                + name
-                + '\''
-                + '}';
     }
 }

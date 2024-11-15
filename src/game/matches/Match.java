@@ -1,14 +1,16 @@
-package game.components;
+package game.matches;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import fileio.GameInput;
-import game.commands.AttackCommands;
+import game.commands.Attack;
 import game.commands.Debug;
 import game.commands.Play;
 import game.commands.Stats;
-import game.heroes.Hero;
+import game.components.Board;
+import game.components.Deck;
+import game.components.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,11 +65,11 @@ public class Match {
                     break;
                 case "placeCard": result = Play.placeCard(this, command);
                     break;
-                case "cardUsesAttack": result = AttackCommands.attackCard(this, command);
+                case "cardUsesAttack": result = Attack.attackCard(this, command);
                     break;
-                case "cardUsesAbility": result = AttackCommands.cardUsesAbility(this, command);
+                case "cardUsesAbility": result = Attack.cardUsesAbility(this, command);
                     break;
-                case "useAttackHero": result = AttackCommands.useAttackHero(this, command);
+                case "useAttackHero": result = Attack.useAttackHero(this, command);
                     break;
                 case "useHeroAbility": result = Play.useHeroAbility(this, command);
                     break;

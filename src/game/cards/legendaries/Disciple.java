@@ -4,13 +4,13 @@ import fileio.CardInput;
 import game.cards.Card;
 
 public class Disciple extends Card {
-    public Disciple(CardInput card, int owner) {
+    public Disciple(final CardInput card, final int owner) {
         super(card, owner);
     }
 
     // implementam God's Plan
     @Override
-    public String ability(Card card) {
+    public String ability(final Card card) {
         // din moment ce Disciple functioneaza pe cardurile proprii
         // am decis sa codez aici toate posibilitatile in ordine
         if (!this.isFrozen()) {

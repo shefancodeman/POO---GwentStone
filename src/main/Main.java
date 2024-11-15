@@ -6,12 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
-import fileio.CardInput;
 import fileio.GameInput;
 import fileio.Input;
 import game.components.Board;
-import game.components.Deck;
-import game.components.Games;
+import game.matches.MatchList;
 
 import java.io.File;
 import java.io.IOException;
@@ -77,15 +75,15 @@ public final class Main {
         Board board = new Board();
 
         // creem jocurile
-        ArrayList<GameInput> gamesList = inputData.getGames();
+        ArrayList<GameInput> matchList = inputData.getGames();
 
         // tinem track la scor si la jocuri
-        Games games = new Games(inputData.getPlayerOneDecks().getDecks(),
-                inputData.getPlayerTwoDecks().getDecks(), gamesList);
+        MatchList matches = new MatchList(inputData.getPlayerOneDecks().getDecks(),
+                inputData.getPlayerTwoDecks().getDecks(), matchList);
 
         // incepem sa jucam! (incepem sa rulam meci cu meci,
         // meciurile la randul lor luand comanda cu comanda
-        ArrayNode output = games.startMatches();
+        ArrayNode output = matches.startMatches();
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), output);

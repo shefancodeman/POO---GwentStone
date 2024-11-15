@@ -1,4 +1,4 @@
-package game.components;
+package game.matches;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -6,18 +6,15 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import fileio.CardInput;
 import fileio.GameInput;
-import game.cards.Card;
 import game.components.Deck;
-import game.heroes.Hero;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 @Getter
 @Setter
-public class Games {
+public class MatchList {
     private  ArrayList<ArrayList<CardInput>> p1Decks;
     private  ArrayList<ArrayList<CardInput>> p2Decks;
     // static pentru a putea fi accesate din afara clasei
@@ -25,12 +22,14 @@ public class Games {
     public static int playerTwoWins;
     private ArrayList<GameInput> gamesList;
 
+    private int instance = 0;
+
     // initializam jocul cu win si games counters
     // cat si deckurile din care putem alege, jocul constand din
     // mai multe meciuri legate impreuna
-    public Games(final ArrayList<ArrayList<CardInput>> playerOneDecks,
-                      final ArrayList<ArrayList<CardInput>> playerTwoDecks,
-                      final ArrayList<GameInput> gamesList) {
+    public MatchList(final ArrayList<ArrayList<CardInput>> playerOneDecks,
+                     final ArrayList<ArrayList<CardInput>> playerTwoDecks,
+                     final ArrayList<GameInput> gamesList) {
         // creem deck-uri noi din deckInput,
         // din moment ce trebuie sa-si revina la starea initiala
         this.p1Decks = playerOneDecks;

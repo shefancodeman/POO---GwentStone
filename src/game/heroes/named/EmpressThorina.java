@@ -5,8 +5,8 @@ import game.cards.Card;
 import game.components.Board;
 import game.heroes.Hero;
 
-public class Empress_Thorina extends Hero {
-    public Empress_Thorina(CardInput hero) {
+public class EmpressThorina extends Hero {
+    public EmpressThorina(CardInput hero) {
         super(hero);
     }
 

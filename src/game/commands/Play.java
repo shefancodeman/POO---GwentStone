@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import game.cards.Card;
-import game.components.Match;
+import game.matches.Match;
 
 public class Play {
     // void din moment ce nu trebuie sa outputam nimic
